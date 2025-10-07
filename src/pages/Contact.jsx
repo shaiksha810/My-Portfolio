@@ -34,7 +34,7 @@ export default function ContactForm() {
             value={formData.name} 
             onChange={handleChange}
             required
-            className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="p-3 rounded bg-[#ffffff] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
 
           <input 
@@ -44,7 +44,7 @@ export default function ContactForm() {
             value={formData.email} 
             onChange={handleChange}
             required
-            className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="p-3 rounded bg-[#ffffff] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           />
 
           <textarea 
@@ -54,7 +54,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             required
-            className="p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="p-3 rounded bg-[#ffffff] border border-gray-700 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           ></textarea>
 
           <button 

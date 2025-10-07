@@ -75,7 +75,7 @@ const Header = () => {
         </div>
 
         {/* Right Side Icons */}
-        <div className="hidden lg:flex items-center space-x-5 text-2xl">
+        <div className="hidden pr-4 lg:flex items-center space-x-5 text-2xl">
           <a
             href="https://github.com/shaiksha810"
             target="_blank"

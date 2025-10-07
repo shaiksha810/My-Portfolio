@@ -21,12 +21,12 @@ const Skills = () => {
             </div>
 
             <div className="flex flex-col items-center hover:scale-110 transition">
-              <FaJsSquare size={60} className="text-yellow-300" />
+              <FaJsSquare size={60} className="text-yellow-500" />
               <p className="mt-2 text-lg">JavaScript</p>
             </div>
 
             <div className="flex flex-col items-center hover:scale-110 transition">
-              <FaReact size={60} className="text-cyan-400" />
+              <FaReact size={60} className="text-cyan-500" />
               <p className="mt-2 text-lg">ReactJS</p>
             </div>
 
@@ -36,17 +36,17 @@ const Skills = () => {
             </div>
 
             <div className="flex flex-col items-center hover:scale-110 transition">
-              <SiExpress size={60} className="text-gray-300" />
+              <SiExpress size={60} className="text-green-500" />
               <p className="mt-2 text-lg">ExpressJS</p>
             </div>
 
             <div className="flex flex-col items-center hover:scale-110 transition">
-              <SiMongodb size={60} className="text-green-400" />
+              <SiMongodb size={60} className="text-green-500" />
               <p className="mt-2 text-lg">MongoDB</p>
             </div>
 
             <div className="flex flex-col items-center hover:scale-110 transition">
-              <SiPython size={60} className="text-blue-400" />
+              <SiPython size={60} className="text-blue-500" />
               <p className="mt-2 text-lg">Python</p>
             </div>
           </div>

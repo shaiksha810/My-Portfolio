@@ -30,13 +30,13 @@ const App = () => {
       <hr className="bg-black"/>
       <main >
         <section id="home"><Home /></section>
-        <hr/>
+        <hr className="h-0.5"/>
         <section id="about"><About /></section>
-        <hr/>
+        <hr className="h-0.5"/>
         <section id="skills"><Skills /></section>
-        <hr/>
+        <hr className="h-0.5"/>
         <section id="projects"><Projects /></section>
-        <hr />
+        <hr className="h-0.5"/>
         <section id="contact"><Contact /></section>
       </main>
     </div>
