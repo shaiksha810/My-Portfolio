@@ -1,62 +1,40 @@
-import React from 'react'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './pages/Home';
-import About from './pages/About';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import AppLayout from './components/AppLayout';
-import ErrorPage from './pages/ErrorPage';
+import React, { useEffect } from "react";
+import Lenis from "@studio-freight/lenis";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Skills from "./pages/Skills";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 const App = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      smoothTouch: true,
+    });
 
-  // Method-1
-  const router = createBrowserRouter([
-    {
-      path:'/',
-      errorElement:<ErrorPage/>,
-      element:<AppLayout />,
-      children:[
-        {
-          path: '/',
-          element: <Home />
-        },
-        {
-          path: '/about',
-          element: <About />
-        },
-        {
-          path: '/skills',
-          element: <Skills />
-        },
-        {
-          path: '/projects',
-          element: <Projects />
-        },
-        {
-          path: '/contact',
-          element: <Contact />
-        }
-      ]
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
-  ])
 
-  //Method-2
-  // const router = createBrowserRouter(
-  //   createRoutesFromElements(
-  //     <Route>
-  //       <Route path='/' element={<Home/>}/>
-  //       <Route path='/about' element={<About/>}/>
-  //       <Route path='/skills' element={<Skills/>}/>
-  //       <Route path='/projects' element={<Projects/>}/>
-  //       <Route path='/contact' element={<Contact/>}/>
-  //     </Route>
-  //   )
-  // ) 
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
-    <RouterProvider router={router} />
-  )
-}
+    <div className="bg-[#1f2029] text-white scroll-smooth">
+      <Header />
+      <main className="pt-20">
+        <section id="home"><Home /></section>
+        <section id="about"><About /></section>
+        <section id="skills"><Skills /></section>
+        <section id="projects"><Projects /></section>
+        <section id="contact"><Contact /></section>
+      </main>
+    </div>
+  );
+};
 
-export default App
+export default App;

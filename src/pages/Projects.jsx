@@ -22,8 +22,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="bg-[#2a2d3a] text-[#ffffff] py-16 px-4" id="projects">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-[#2a2d3a] text-[#ffffff] py-16 px-4" id="projects" >
+      <div className="max-w-6xl mx-auto text-center mt-8">
         <h2 className="text-4xl font-bold text-[#ffffff] mb-10">My Projects</h2>
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">

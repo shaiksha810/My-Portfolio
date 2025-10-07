@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs } from 'react-icons/fa';
-import { SiExpress, SiMongodb } from 'react-icons/si';
+import { SiExpress, SiMongodb, SiPython } from 'react-icons/si';
 
 const Skills = () => {
   return (
@@ -43,6 +43,11 @@ const Skills = () => {
           <div className="flex flex-col items-center hover:scale-110 transition">
             <SiMongodb size={60} className="text-green-400" />
             <p className="mt-2 text-lg">MongoDB</p>
+          </div>
+
+          <div className="flex flex-col items-center hover:scale-110 transition">
+            <SiPython size={60} className="text-blue-400" />
+            <p className="mt-2 text-lg">Python</p>
           </div>
         </div>
       </div>

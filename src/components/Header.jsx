@@ -1,69 +1,112 @@
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
+import { LuMenu } from "react-icons/lu";
+import { IoMdClose } from "react-icons/io";
 
- function Header() {
-  const linkClass = ({ isActive }) =>
-    isActive
-      ? "text-yellow-400  border-yellow-400 transition duration-300"
-      : "hover:text-yellow-400 transition duration-300";
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
+      const sections = document.querySelectorAll("section");
+      let current = "home";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+        if (
+          window.scrollY >= sectionTop &&
+          window.scrollY < sectionTop + sectionHeight
+        ) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const links = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
 
   return (
-    <header className="bg-[#2a2d3a] text-[#ffffff] p-4 shadow-md">
-      <nav className="flex justify-center space-x-8 text-lg font-medium">
-        <NavLink to="/" className={linkClass}>Home</NavLink>
-        <NavLink to="/about" className={linkClass}>About</NavLink>
-        <NavLink to="/skills" className={linkClass}>Skills</NavLink>
-        <NavLink to="/projects" className={linkClass}>Projects</NavLink>
-        <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+    <header
+      className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
+        isScrolled
+          ? "bg-[#1f2029]/95 backdrop-blur-md shadow-lg"
+          : "bg-[#1f2029]/70"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-5 py-4">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-yellow-400 tracking-wide">
+          My Portfolio
+        </h1>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex space-x-8 text-lg font-medium">
+          {links.map((link) => (
+            <HashLink
+              key={link.id}
+              smooth
+              to={`#${link.id}`}
+              className={`transition duration-300 ${
+                activeSection === link.id
+                  ? "text-yellow-400 font-semibold"
+                  : "text-white hover:text-yellow-400"
+              }`}
+            >
+              {link.label}
+            </HashLink>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden text-yellow-400"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <IoMdClose size={28} /> : <LuMenu size={28} />}
+        </button>
       </nav>
+
+      {/* Mobile Dropdown Menu (fixed instead of absolute) */}
+      {menuOpen && (
+        <div
+          className="fixed top-16 left-0 w-full bg-[#2a2d3a] 
+          text-white text-center space-y-4 py-5 shadow-md z-[9999] lg:hidden"
+        >
+          {links.map((link) => (
+            <HashLink
+              key={link.id}
+              smooth
+              to={`#${link.id}`}
+              className={`block transition duration-300 ${
+                activeSection === link.id
+                  ? "text-yellow-400 font-semibold"
+                  : "text-white hover:text-yellow-400"
+              }`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </HashLink>
+          ))}
+        </div>
+      )}
     </header>
   );
-}
-
+};
 
 export default Header;
-
-// import { NavLink, useLocation } from 'react-router-dom';
-// import { motion } from 'framer-motion';
-
-// const tabs = [
-//   { name: 'Home', path: '/' },
-//   { name: 'About', path: '/about' },
-//   { name: 'Skills', path: '/skills' },
-//   { name: 'Projects', path: '/projects' },
-//   { name: 'Contact', path: '/contact' }
-// ];
-
-// export default function Header() {
-//   const location = useLocation();
-
-//   return (
-//     <header className="bg-[#2a2d3a] text-[#ffffff] p-4 shadow-md">
-//       <nav className="relative flex justify-center space-x-4 md:space-x-8 text-lg font-medium px-4 py-2 bg-[#2a2d3a] rounded-xl">
-
-//         {tabs.map((tab) => {
-//           const isActive = location.pathname === tab.path;
-
-//           return (
-//             <NavLink
-//               key={tab.path}
-//               to={tab.path}
-//               className="relative px-4 py-2 rounded-xl"
-//             >
-//               {isActive && (
-//                 <motion.div
-//                   layoutId="activeTab"
-//                   className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-xl"
-//                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
-//                 />
-//               )}
-//               <span className={`relative z-10 ${isActive ? "text-[#ffffff] font-semibold" : "text-[#ffffff] hover:text-yellow-400 transition"}`}>
-//                 {tab.name}
-//               </span>
-//             </NavLink>
-//           );
-//         })}
-
-//       </nav>
-//     </header>
-//   );
-// }
