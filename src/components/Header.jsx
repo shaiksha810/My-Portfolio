@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
 import { LuMenu } from "react-icons/lu";
 import { IoMdClose } from "react-icons/io";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,17 +46,17 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
         isScrolled
-          ? "bg-[#1f2029]/95 backdrop-blur-md shadow-lg"
-          : "bg-[#1f2029]/70"
+          ? "bg-[#FFFFFF]/95 backdrop-blur-md shadow-lg"
+          : "bg-[#FFFFFF]"
       }`}
     >
-      <nav className="max-w-7xl mx-auto flex justify-between items-center px-5 py-4">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-5 py-[10px]">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-yellow-400 tracking-wide">
+        <h1 className="text-2xl font-bold text-[#000000] tracking-wide">
           My Portfolio
         </h1>
 
-        {/* Desktop Menu */}
+        {/* Center Menu */}
         <div className="hidden lg:flex space-x-8 text-lg font-medium">
           {links.map((link) => (
             <HashLink
@@ -64,8 +65,8 @@ const Header = () => {
               to={`#${link.id}`}
               className={`transition duration-300 ${
                 activeSection === link.id
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white hover:text-yellow-400"
+                  ? "text-[#0077b6] font-semibold"
+                  : "text-[#000000] hover:text-[#0077b6]"
               }`}
             >
               {link.label}
@@ -73,20 +74,40 @@ const Header = () => {
           ))}
         </div>
 
+        {/* Right Side Icons */}
+        <div className="hidden lg:flex items-center space-x-5 text-2xl">
+          <a
+            href="https://github.com/shaiksha810"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#000000] hover:text-[#0077b6] transition"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com/in/shaiksha810"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#000000] hover:text-[#0077b6] transition"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
+
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-yellow-400"
+          className="lg:hidden text-[#000000]"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <IoMdClose size={28} /> : <LuMenu size={28} />}
         </button>
       </nav>
 
-      {/* Mobile Dropdown Menu (fixed instead of absolute) */}
+      {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div
-          className="fixed top-16 left-0 w-full bg-[#2a2d3a] 
-          text-white text-center space-y-4 py-5 shadow-md z-[9999] lg:hidden"
+          className="fixed top-16 left-0 w-full bg-[#FFFFFF]
+          text-center space-y-4 py-5 shadow-md z-[9999] lg:hidden"
         >
           {links.map((link) => (
             <HashLink
@@ -95,14 +116,34 @@ const Header = () => {
               to={`#${link.id}`}
               className={`block transition duration-300 ${
                 activeSection === link.id
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white hover:text-yellow-400"
+                  ? "text-[#0077b6] font-semibold"
+                  : "text-[#000000] hover:text-[#0077b6]"
               }`}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </HashLink>
           ))}
+
+          {/* Social Icons in Mobile Menu */}
+          <div className="flex justify-center space-x-6 pt-4 text-2xl">
+            <a
+              href="https://github.com/shaiksha810"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#000000] hover:text-[#0077b6] transition"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://linkedin.com/in/shaiksha810"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#000000] hover:text-[#0077b6] transition"
+            >
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
       )}
     </header>

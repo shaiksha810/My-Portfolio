@@ -22,9 +22,9 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-[#2a2d3a] text-white py-16 px-4" id="contact">
+    <section className="bg-[#E3E3FF] text-white py-16 px-4" id="contact">
       <div className="max-w-lg mx-auto text-center mt-8">
-        <h2 className="text-4xl font-bold text-yellow-400 mb-8">Contact Me</h2>
+        <h2 className="text-4xl font-bold text-[#000000] mb-8">Contact Me</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
           <input 

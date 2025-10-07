@@ -24,13 +24,19 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-[#1f2029] text-white scroll-smooth">
+    <div className="bg-[#1f2029] text-white scroll-smooth text-sm">
       <Header />
-      <main className="pt-20">
+      <hr className="bg-black"/>
+      <hr className="bg-black"/>
+      <main >
         <section id="home"><Home /></section>
+        <hr/>
         <section id="about"><About /></section>
+        <hr/>
         <section id="skills"><Skills /></section>
+        <hr/>
         <section id="projects"><Projects /></section>
+        <hr />
         <section id="contact"><Contact /></section>
       </main>
     </div>
