@@ -26,8 +26,6 @@ const App = () => {
   return (
     <div className="bg-[#1f2029] text-white scroll-smooth text-sm">
       <Header />
-      <hr className="bg-black"/>
-      <hr className="bg-black"/>
       <main >
         <section id="home"><Home /></section>
         <hr className="h-0.5"/>

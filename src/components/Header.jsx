@@ -44,16 +44,16 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 border-b border-[#000000] ${
         isScrolled
           ? "bg-[#FFFFFF]/95 backdrop-blur-md shadow-lg"
           : "bg-[#FFFFFF]"
       }`}
     >
-      <nav className="max-w-7xl mx-auto flex justify-between items-center px-5 py-[10px]">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-5 py-[15px]">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-[#000000] tracking-wide">
-          My Portfolio
+        <h1 className="text-2xl font-bold text-[#000000] tracking-wide ml-3">
+          SSV
         </h1>
 
         {/* Center Menu */}
@@ -75,7 +75,7 @@ const Header = () => {
         </div>
 
         {/* Right Side Icons */}
-        <div className="hidden pr-4 lg:flex items-center space-x-5 text-2xl">
+        <div className="hidden pr-4 lg:flex items-center space-x-5 text-3xl">
           <a
             href="https://github.com/shaiksha810"
             target="_blank"

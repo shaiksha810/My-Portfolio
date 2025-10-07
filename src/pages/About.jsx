@@ -4,7 +4,7 @@ const About = () => {
   return (
     <>
       <section
-        className="min-h-[90vh] flex flex-col items-center justify-center bg-[#FFFFFF] text-[#303139] px-6 py-12"
+        className="min-h-[90vh] flex flex-col items-center justify-center bg-[#FFFFFF] text-[#303139] px-6 py-16"
         id="about"
       >
         {/* ---- Title ---- */}
@@ -30,7 +30,7 @@ const About = () => {
             {/* Resume Button - Always Centered */}
             <div className="flex justify-center md:justify-center">
               <a
-                href="/Shaiksha_Resume.pdf"
+                href="/shaiksha_fullstack.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block border-2 border-yellow-400 px-6 py-3 rounded-md font-bold hover:bg-yellow-400 hover:text-gray-900 transition"
